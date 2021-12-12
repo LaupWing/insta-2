@@ -7,11 +7,14 @@ import {
    PaperAirplaneIcon,
    MenuIcon
 } from '@heroicons/react/outline'
+import {
+   HomeIcon
+} from '@heroicons/react/solid'
 
 function Header() {
    return (
       <div>
-         <div className='flex justify-between max-w-6xl'>
+         <div className='flex justify-between max-w-6xl mx-5 lg:mx-auto'>
             <div className='relative hidden lg:inline-grid w-24 cursor-pointer'>
                <Image
                   src='https://links.papareact.com/ocw'
@@ -35,8 +38,11 @@ function Header() {
                </div>
             </div>
 
-            <div>
-               
+            <div className='flex items-center justify-end space-x-4'>
+               <HomeIcon className='h-10 w-10'/>
+               <MenuIcon className='h-6 md:hidden cursor-pointer'/>
+
+               <PaperAirplaneIcon className='h-10 w-10'/>
             </div>
          </div>
       </div>
