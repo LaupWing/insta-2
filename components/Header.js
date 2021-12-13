@@ -41,8 +41,18 @@ function Header() {
             <div className='flex items-center justify-end space-x-4'>
                <HomeIcon className='navBtn'/>
                <MenuIcon className='h-6 md:hidden cursor-pointer'/>
+               <div className="relative navBtn">
+                  <PaperAirplaneIcon className='navBtn rotate-45'/>
+                  <div className='absolute -top-1 -right-2 text-xs w-5 h-5 bg-red-500 text-white rounded-full flex items-center justify-center animate-pulse'>3</div>
+               </div>
+               <PlusCircleIcon className='navBtn'/>
+               <UserGroupIcon className='navBtn'/>
+               <HeartIcon className='navBtn'/>
 
-               <PaperAirplaneIcon className='navBtn'/>
+               <img 
+                  src="https://static.wikia.nocookie.net/spongebob/images/d/d7/SpongeBob_stock_art.png/revision/latest?cb=20190921125147" alt="profile picture" 
+                  className='h-10 w-10 object-fill rounded-full'
+               />
             </div>
          </div>
       </div>
