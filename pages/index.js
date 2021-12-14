@@ -11,7 +11,6 @@ export default function Home() {
          </Head>
          <Header/>
          <Feed/>
-         <h1>This is the Instagram 2 build</h1>
       </div>
    )
 }
