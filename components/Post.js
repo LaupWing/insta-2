@@ -1,5 +1,5 @@
 import {
-   BookOpenIcon,
+   BookmarkIcon,
    ChatIcon,
    DotsHorizontalIcon,
    EmojiHappyIcon,
@@ -15,6 +15,19 @@ const Post = ({id, username, userImg, img, caption}) => {
             <img src={userImg} className='rounded-full h-12 w-12 border p-1 mr-3 object-contain' alt="" />
             <p className='flex-1 font-bold'>{username}</p>
             <DotsHorizontalIcon className='h-5'/>
+         </div>
+         <img 
+            src={img} 
+            alt="image" 
+            className='object-cover w-full'
+         />
+         <div className='flex justify-between px-4 pt-4'>
+            <div className='flex space-x-4'>
+               <HeartIcon className='btn'/>
+               <ChatIcon className='btn'/>
+               <PaperAirplaneIcon className='btn'/>
+            </div>
+            <BookmarkIcon className='btn'/>
          </div>
       </div>
    )
