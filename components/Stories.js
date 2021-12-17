@@ -1,4 +1,4 @@
-import faker from 'faker'
+import faker from '../helpers/faker'
 import { useEffect, useState } from 'react'
 import Story from './Story'
 
@@ -6,16 +6,8 @@ function Stories() {
    const [suggestions, setSuggestions] = useState([])
    
    useEffect(async () => {
-      const suggestions = [...Array(20)].map((_, i)=>({
-         ...faker.helpers.contextualCard(),
-         id: i
-      }))
-      const fetchImages = await fetch('https://randomuser.me/api/?results=20')
-      const images = await fetchImages.json() 
-      setSuggestions(suggestions.map((suggestion, i)=>({
-         ...suggestion,
-         avatar: images.results[i].picture.thumbnail
-      })))
+      const suggestions = await faker(20)
+      setSuggestions(suggestions)
    }, [])
 
    return (
