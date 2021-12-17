@@ -8,7 +8,9 @@ function Feed() {
             <Stories/>
             <Posts/>
          </section>
-         <section></section>
+         <section>
+            test
+         </section>
       </main>
    )
 }
