@@ -41,23 +41,28 @@ function Header() {
                   <input className='bg-gray-50 block w-full pl-10 sm:text-sm border border-gray-300 rounded-md focus:ring-black focus:border-black' type="text" placeholder='Search'/>
                </div>
             </div>
-
             <div className='flex items-center justify-end space-x-4'>
                <HomeIcon className='navBtn'/>
                <MenuIcon className='h-6 md:hidden cursor-pointer'/>
-               <div className="relative navBtn">
-                  <PaperAirplaneIcon className='navBtn rotate-45'/>
-                  <div className='absolute -top-1 -right-2 text-xs w-5 h-5 bg-red-500 text-white rounded-full flex items-center justify-center animate-pulse'>3</div>
-               </div>
-               <PlusCircleIcon className='navBtn'/>
-               <UserGroupIcon className='navBtn'/>
-               <HeartIcon className='navBtn'/>
+               {session ? (
+                  <>
+                     <div className="relative navBtn">
+                        <PaperAirplaneIcon className='navBtn rotate-45'/>
+                        <div className='absolute -top-1 -right-2 text-xs w-5 h-5 bg-red-500 text-white rounded-full flex items-center justify-center animate-pulse'>3</div>
+                     </div>
+                     <PlusCircleIcon className='navBtn'/>
+                     <UserGroupIcon className='navBtn'/>
+                     <HeartIcon className='navBtn'/>
 
-               <img 
-                  src={session?.user?.image} 
-                  alt="profile picture" 
-                  className='h-10 w-10 object-fill rounded-full'
-               />
+                     <img 
+                        src={session.user?.image} 
+                        alt="profile picture" 
+                        className='h-10 w-10 object-fill rounded-full'
+                     />
+                  </>
+               ) : (
+                  <button onClick={signIn}>Sign in</button>
+               )}
             </div>
          </div>
       </div>
