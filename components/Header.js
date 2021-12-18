@@ -10,8 +10,12 @@ import {
 import {
    HomeIcon
 } from '@heroicons/react/solid'
+import { useSession } from 'next-auth/react'
 
 function Header() {
+   const {data: session}  = useSession()
+   console.log(session)
+
    return (
       <div className='shadow-sm sticky border-b bg-white top-0 z-50'>
          <div className='flex justify-between max-w-6xl mx-5 lg:mx-auto'>
@@ -50,7 +54,8 @@ function Header() {
                <HeartIcon className='navBtn'/>
 
                <img 
-                  src="https://static.wikia.nocookie.net/spongebob/images/d/d7/SpongeBob_stock_art.png/revision/latest?cb=20190921125147" alt="profile picture" 
+                  src={session?.user?.image} 
+                  alt="profile picture" 
                   className='h-10 w-10 object-fill rounded-full'
                />
             </div>
