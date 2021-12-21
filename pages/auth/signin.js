@@ -16,7 +16,9 @@ const signin = ({ providers }) => {
                   <div key={provider.name}>
                      <button 
                         className='p-3 bg-blue-500 rounded-lg text-white'
-                        onClick={() => signIn(provider.id)}
+                        onClick={() => signIn(provider.id, {
+                           callbackUrl: '/'
+                        })}
                      >
                         Sign in with {provider.name}
                      </button>
