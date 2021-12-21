@@ -10,7 +10,7 @@ import {
 import {
    HomeIcon
 } from '@heroicons/react/solid'
-import { useSession } from 'next-auth/react'
+import { useSession, signIn } from 'next-auth/react'
 
 function Header() {
    const {data: session}  = useSession()
