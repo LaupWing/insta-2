@@ -7,10 +7,34 @@ import {
 	PaperAirplaneIcon
 } from '@heroicons/react/outline'
 import { HeartIcon as HeartIconFilled } from '@heroicons/react/solid'
+import { addDoc, collection, onSnapshot, orderBy, query, serverTimestamp } from 'firebase/firestore'
 import { useSession } from 'next-auth/react'
+import { useEffect } from 'react'
+import { useState } from 'react/cjs/react.production.min'
+import { db } from '../firebase'
 
 const Post = ({ id, username, userImg, img, caption }) => {
    const {data:session} = useSession()
+   const [comment, setComment] = useState([])
+   const [comments, setComments] = useState([])
+
+   useEffect(()=>{
+      return onSnapshot(query(collection(db, 'posts', id, 'comments'), orderBy('timestamp', 'desc')), snapshot => setComments(snapshot.docs))
+   },[db])
+
+   const sendComment = async e =>{
+      e.preventDefault()
+
+      const commentToSend = comment
+      setComment('')
+
+      await addDoc(collection(db, 'posts', id, 'comments'), {
+         comment: commentToSend,
+         username: session.user.username,
+         userImage: session.user.image,
+         timestamp: serverTimestamp()
+      })
+   }
 
 	return (
 		<div className='bg-white my-7 border rounded-sm'>
@@ -41,11 +65,20 @@ const Post = ({ id, username, userImg, img, caption }) => {
             <form className='flex items-center p-4'>
                <EmojiHappyIcon className='h-7' />
                <input
+                  value={comment}
+                  onChange={e => setComment(e.target.value)}
                   type="text"
                   placeholder='Add a comment...'
                   className='border-none flex-1 focus:ring-0'
                />
-               <button className='font-semibold text-blue-400'>Post</button>
+               <button 
+                  type='submit' 
+                  disabled={!comment.trim()} 
+                  className='font-semibold text-blue-400'
+                  onClick={sendComment}
+               >
+                  Post
+               </button>
             </form>
          )}
 		</div>
