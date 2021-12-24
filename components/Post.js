@@ -18,6 +18,7 @@ const Post = ({ id, username, userImg, img, caption }) => {
    const { data: session } = useSession()
    const [comment, setComment] = useState([])
    const [comments, setComments] = useState([])
+   const [likes, setLikes] = useState([])
 
    useEffect(() => {
       return onSnapshot(query(collection(db, 'posts', id, 'comments'), orderBy('timestamp', 'desc')), snapshot => setComments(snapshot.docs))
