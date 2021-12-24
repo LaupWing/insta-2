@@ -3,23 +3,6 @@ import Post from "./Post"
 import {collection, onSnapshot, orderBy, query} from 'firebase/firestore'
 import { db } from "../firebase"
 
-// const posts = [
-//    {
-//       id: '123',
-//       username: 'sssssangha',
-//       userImg: 'https://avatars.githubusercontent.com/u/499550?v=4',
-//       img: 'https://avatars.githubusercontent.com/u/499550?v=4',
-//       caption: 'This is DOPE!'
-//    },
-//    {
-//       id: '12',
-//       username: 'sssssangha',
-//       userImg: 'https://avatars.githubusercontent.com/u/499550?v=4',
-//       img: 'https://avatars.githubusercontent.com/u/499550?v=4',
-//       caption: 'This is DOPE!'
-//    },
-// ]
-
 const Posts = () => {
     const [posts, setPosts] = useState([])
 
