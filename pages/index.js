@@ -4,15 +4,15 @@ import Header from '../components/Header'
 import Modal from '../components/Modal'
 
 export default function Home() {
-    return (
-        <div className="h-screen overflow-y-scroll scrollbar-hide">
-            <Head>
-                <title>Instagram 2.0</title>
-                <link rel="icon" href="/favicon.ico" />
-            </Head>
-            <Modal />
-            <Header />
-            <Feed />
-        </div>
-    )
+   return (
+      <div className="h-screen overflow-y-scroll scrollbar-hide">
+         <Head>
+            <title>Instagram 2.0</title>
+            <link rel="icon" href="/favicon.ico" />
+         </Head>
+         <Modal />
+         <Header />
+         <Feed />
+      </div>
+   )
 }
